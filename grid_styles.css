@@ -1,0 +1,379 @@
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    display: grid;
+    column-gap: 1rem;
+    font-size: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 1fr 1fr 0.06fr 1fr 1fr;
+    grid-template-areas: 
+    "titleRow titleRow"
+    "puzzle-container puzzle-container"
+    "puzzle-container puzzle-container"
+    "user-container user-container"
+    "button-row button-row"
+    "submit-row submit-row";
+    color: #bbb34a;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    align-items: top;
+    justify-content: center;
+    min-height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, #63346e,#3e5279 );
+}
+
+header{
+    font-size: 3rem;
+}
+#titleRow{
+    grid-area: titleRow;
+}
+
+#aside{
+    grid-area: aside;
+    grid-column-start: 3;
+    grid-row-start: 1;
+    background-color: #3e5279;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-top: 30%;
+    height: fit-content;
+   
+    
+}
+
+#aside p{
+    margin: 0;
+    padding: 0;
+}
+
+#aside h1{
+    margin-bottom: 0rem;
+}
+
+#puzzle-container{
+    grid-area: puzzle-container;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-area:
+        "CB1"
+        "CB2"
+        "CB3"
+        "CB4";
+    grid-template-areas:
+    "CB1 CB2"
+    "CB3 CB4";
+    align-items: center;
+    font-size: 2rem;
+}
+
+#puzzle-container p{
+    margin: 2rem 0;
+}
+
+
+#CB1{
+    grid-area: CB1;
+}
+#CB2{
+    grid-area: CB2;
+}
+#CB3{
+    grid-area: CB3;
+}
+#CB4{
+    grid-area: CB4;
+}
+
+#user-container{
+    grid-area: user-container;
+    display: grid;
+    padding-left: 30%;
+    padding-right: 30%;
+    grid-template-columns:repeat(5,1fr);
+    grid-template-rows: auto;
+    grid-area: 
+        "InputSpace1" 
+        "input-box0"
+        "input-box1"
+        "input-box2"
+        "InputSpace2";
+    grid-template-areas: 
+        "InputSpace1 input-box0 input-box1 input-box2 InputSpace2";
+    justify-content: center;
+    margin: 0;
+    height: fit-content;
+}
+#input-box0{
+    grid-area: input-box0;
+}
+#input-box1{
+    grid-area: input-box1;
+}
+#input-box2{
+    grid-area: input-box2;
+}
+
+input{
+    border-radius: 10px;
+    border:color(from color srgb r g b);
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #c0b406;
+    background: linear-gradient(135deg, #6888c9, #b560c9);
+}
+input:focus{
+    border-color: #e9b451;
+    background-color: #ede7ee;
+    color:#f3e413 ;
+}
+
+input:hover, button:hover{
+    cursor:pointer;
+    color: #1c65f5;
+
+}
+#button-row{
+    grid-area: button-row;
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    grid-area: 
+        "button-0"
+        "button-1"
+        "button-2"
+        "button-3"
+        "button-4"
+        "button-5"
+        "button-6"
+        "button-7"
+        "button-8"
+        "button-9";
+    grid-template-areas:
+        "button-0 button-1 button-2 button-3 button-4"
+        "button-5 button-6 button-7 button-8 button-9";
+    margin: 5% 0;
+
+}
+button{
+    color: #bbb34a;
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border:color(from color srgb r g b);
+    border-radius: 0.5em;
+    background: linear-gradient(135deg,  #43234b, #2d3b57);
+    text-align: center;
+}
+#submit-row{
+    grid-area: submit-row;
+}
+
+#submit{
+    width: fit-content;
+}
+
+#blank{
+    grid-area: blank;
+}
+
+#playAgainWon, #playAgainLost, #closeWon, #closeLost{
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.5em;
+}
+
+#closeWon, #closeLost{
+    font-size: 2rem;
+    display: block;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+}
+#answer{
+
+    display: none;
+}
+
+.popupWon, .popupLost{
+    background:#6d5572;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    font-size: 3rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40vh;
+    left: 10%;
+    text-align: center;
+    visibility: hidden;
+    justify-content: center;
+}
+
+
+
+.open-popupWon, .open-popupLost{
+
+    visibility: visible;
+    box-shadow: 5px 10px 15px #373737;
+}
+
+#puzzle-links-body{
+    display: flex;
+    flex-direction: column;
+    
+}
+#puzzle-links-body li{
+    list-style: none;
+   
+}
+.puzzle-links ul li a {
+    color: #bbb34a;
+}
+
+#clueVariables{
+    display: none;
+}
+
+@media only screen and (min-width:370px) and (max-width: 767px) {
+    body{
+        column-gap: 0px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0fr 0.5fr 2fr 0.2fr;
+        grid-template-areas: 
+        "titleRow titleRow"
+        "puzzle-container puzzle-container"
+        "puzzle-container puzzle-container"
+        "user-container user-container"
+        "button-row button-row"
+        "submit-row submit-row";
+    }
+    #titleRow{
+        height: 3.5rem;
+    }
+    #aside{
+        display: inherit;
+        grid-column-start: 1;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: fit-content;
+        font-size: 1rem;
+        margin-top: 0;
+    }
+    
+    #puzzle-container{
+        margin-top: -2rem;
+        grid-row-start: 3;
+        font-size: 1.3rem;
+    }
+    #user-container{
+        grid-row-start: 4;
+        grid-column-gap: 1rem;
+    }
+
+    input{
+        font-size: 2rem;
+        height: 3rem;
+        width: 3rem;
+    }
+    #button-row{
+        grid-row-start: 5;
+    }
+    button{
+        font-size: 1.5rem;
+        height: 3rem;
+        width: 3rem;
+        
+    }
+
+    #submit-row{
+        grid-row-start: 6;
+    }
+
+    .popupWon, .popupLost{
+        font-size: 2rem;
+        left: 25%;
+        margin-top: 80vh;
+    }
+    
+    
+
+}
+
+@media only screen and (min-width:768px) and (max-width: 1023px) {
+    body{
+        column-gap: 0px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0fr 0.5fr 2fr 0.2fr;
+        grid-template-areas: 
+        "titleRow titleRow"
+        "puzzle-container puzzle-container"
+        "puzzle-container puzzle-container"
+        "user-container user-container"
+        "button-row button-row"
+        "submit-row submit-row";
+        height: 100vh;
+        
+    }
+    #aside{
+        display: inherit;
+        grid-column-start: 1;
+        
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: fit-content;
+        font-size: 1rem;
+        margin-top: 0;
+    }
+
+    #puzzle-container{
+        margin-top: -2rem;
+        grid-row-start: 3;
+        font-size: 1.8rem;
+    }
+    #user-container{
+        grid-row-start: 4;
+        grid-column-gap: 1rem;
+    }
+
+    input{
+        font-size: 2rem;
+        height: 3rem;
+        width: 3rem;
+    }
+    #button-row{
+        grid-row-start: 5;
+    }
+    button{
+        font-size: 1.5rem;
+        height: 3rem;
+        width: 3rem;
+    }
+
+    #submit-row{
+        grid-row-start: 6;
+    }
+    
+    .popupWon, .popupLost{
+        font-size: 2rem;
+        left: 25%;
+        margin-top: 40vh;
+    }
+
+}
+
