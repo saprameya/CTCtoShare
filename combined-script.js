@@ -1,6 +1,7 @@
 var inputBox = document.getElementById("input-box0");
 inputBox.focus();
 const ans = ['X','X','X'];
+var closePage = document.getElementsByClassName("closePage");
 var popup = document.getElementsByClassName("popup");
 var playAgainLost = document.getElementById("playAgainLost");
 var playAgainWon = document.getElementById("playAgainWon");
@@ -155,6 +156,12 @@ submit.addEventListener("click", function(e){
 //     location.reload();
 
 // });
+
+closePage.addEventListener("click", function (e){
+    var startPage= document.getElementById("startPage");
+    startPage.classList.remove(".start-page");
+    startPage.classList.add(".close-start-page");
+});
 
 closeLost.addEventListener("click", function (e){
     popup = document.getElementById("popup-lost");
