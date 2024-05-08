@@ -30,6 +30,7 @@ let corrNotPlacedIndex1 = -1;
 let corrNotPlacedIndex2 = -1;
 let gameWon = true;
 
+
 getClueArrays();
 
 function inputNumber(num){
