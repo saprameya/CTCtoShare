@@ -157,24 +157,24 @@ submit.addEventListener("click", function(e){
 
 // });
 
-closePage.addEventListener("click", function (e){
-    var startPage= document.getElementById("startPage");
-    startPage.classList.remove(".start-page");
-    startPage.classList.add(".close-start-page");
-});
+// closePage.addEventListener("click", function (e){
+//     var startPage= document.getElementById("startPage");
+//     startPage.classList.remove(".start-page");
+//     startPage.classList.add(".close-start-page");
+// });
 
-closeLost.addEventListener("click", function (e){
-    popup = document.getElementById("popup-lost");
-    popup.classList.remove("open-popupLost");
-   disableElements();
-});
+// closeLost.addEventListener("click", function (e){
+//     popup = document.getElementById("popup-lost");
+//     popup.classList.remove("open-popupLost");
+//    disableElements();
+// });
 
-closeWon.addEventListener("click", function (e){
-    popup = document.getElementById("popup-won");
-    popup.classList.remove("open-popupWon");
-    disableElements();
+// closeWon.addEventListener("click", function (e){
+//     popup = document.getElementById("popup-won");
+//     popup.classList.remove("open-popupWon");
+//     disableElements();
 
-});
+// });
 
 function disableElements(){
     var input = document.getElementById("input-box0");
@@ -233,8 +233,6 @@ function getClueArrays(){
     corrNotPlacedNum1 = parseInt(document.getElementById("cnpNum1").innerHTML);
     corrNotPlacedIndex2 = parseInt(document.getElementById("cnpNum2").innerHTML);
     
-    
-
  
 }
 
@@ -362,6 +360,22 @@ function checkNoCorrect(answer){
     
    
     return gameWon;
+}
+
+function closeThisLost(){
+    var lostMessage = document.getElementById("popup-lost");
+    lostMessage.style.display = "none";
+}
+
+
+function closeThisWon(){
+    var wonMessage = document.getElementById("popup-won");
+    wonMessage.style.display = "none";
+}
+
+function closeThisPage(){
+    var startPage = document.getElementById("start-page");
+    startPage.style.display = "none";
 }
 
 
