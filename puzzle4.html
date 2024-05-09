@@ -53,11 +53,11 @@
         </div>
         <section class = "popupLost" id="popup-lost">
             <p>You didn't succeed...<br>Better luck next time!</p>
-            <div id = "closeLost" onclick="closeLost()">&times</div>
+            <div id = "closeLost" onclick="closeThisLost()">&times</div>
         </section>
         <section class = "popupWon" id="popup-won">
             <p>You cracked the code!!!</p>
-            <div id = "closeWon" onclick="closeWon()">&times</div>
+            <div id = "closeWon" onclick="closeThisWon()">&times</div>
 
         </section>
         <section id="aside">
@@ -67,6 +67,15 @@
             <p>There may be multiple correct solutions. </p>
             <p>You can click on a box to change the digit you want to enter. </p>
         
+        </section>
+        <section class="start-page" id="start-page">
+            
+            <h1>Instructions</h1>
+            <p>You will be given four clues to guess a three digit code. </p>
+            <p>Digits will not be repeated in the code. </p>
+            <p>There may be multiple correct solutions. </p>
+            <p>You can click on a box to change the digit you want to enter. </p>
+            <button id = "closePage" class="button" onclick="closeThisPage()">Start game</button></div>
         </section>
 
         <script src = "combined-script.js"></script> 

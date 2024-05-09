@@ -61,30 +61,35 @@ var body = document.getElementById("body");
 body.addEventListener("click", function(e){
     if(!gameOver){
         var elem = e.target;
-        if(elem.type == "submit"){
-            if(elem == document.getElementById("submit"))
-            {
-                submit();
+        if(elem != document.getElementById("closePage")){
+            if(elem.type == "submit"){
+                if(elem == document.getElementById("submit"))
+                {
+                    submit();
+                }
+                else{
+                    if(inputBox == document.getElementById("")){
+                        alert("Please click on a box to input");
+                    }    
+                    else {
+                        
+                        let num = elem.innerText;
+                        console.log(num);
+                        inputNumber(num);
+                    }
+                }
+                
+            }
+            else if(elem.type == "text"){
+                inputBox = elem;
+                inputBox.focus();
+                
             }
             else{
-                if(inputBox == document.getElementById("")){
-                    alert("Please click on a box to input");
-                }    
-                else {
-                    let num = elem.innerText;
-                    inputNumber(num);
-                }
+                inputBox = document.getElementById("");
             }
-            
         }
-        else if(elem.type == "text"){
-            inputBox = elem;
-            inputBox.focus();
-            
-        }
-        else{
-            inputBox = document.getElementById("");
-        }
+
     
     }
 });
@@ -377,6 +382,10 @@ function closeThisWon(){
 function closeThisPage(){
     var startPage = document.getElementById("start-page");
     startPage.style.display = "none";
+    console.log(inputBox.id);
+    inputBox = document.getElementById("input-box0");
+    inputBox.focus();
+    
 }
 
 

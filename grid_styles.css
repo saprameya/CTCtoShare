@@ -38,7 +38,7 @@ header{
     z-index: 100;
     background: linear-gradient(135deg, #63346e,#3e5279 );
     opacity: 100;
-    align-content: center;
+    /* align-content: center; */
 
 }
 /* .close-start-page{
@@ -286,9 +286,9 @@ button{
         height: 3.5rem;
     }
 
-    .start-page{
-        margin-top: -20%;
-    }
+    /* .start-page{
+        text-align: start;
+    } */
     #aside{
         display: inherit;
         grid-column-start: 1;
@@ -354,9 +354,9 @@ button{
         
     }
 
-    .start-page{
+    /* .start-page{
         margin-top: -50%;
-    }
+    } */
     #aside{
         display: inherit;
         grid-column-start: 1;
