@@ -7,7 +7,10 @@ var playAgainLost = document.getElementById("playAgainLost");
 var playAgainWon = document.getElementById("playAgainWon");
 var closeLost = document.getElementById("closeLost");
 var closeWon = document.getElementById("closeWon");
-let gameOver = false;
+var gameOver = false;
+var [seconds, minutes] = [0,0];
+var displaytime  = document.getElementById("timer");
+var timer = null;
 
 
 
@@ -74,7 +77,6 @@ body.addEventListener("click", function(e){
                     else {
                         
                         let num = elem.innerText;
-                        console.log(num);
                         inputNumber(num);
                     }
                 }
@@ -99,6 +101,7 @@ var submit = document.getElementById("submit");
 submit.addEventListener("click", function(e){
 
     if(!gameOver){
+
         document.getElementById("input-box0").value = ans[0];
         document.getElementById("input-box1").value = ans[1];
         document.getElementById("input-box2").value = ans[2];
@@ -121,6 +124,7 @@ submit.addEventListener("click", function(e){
             }
             else{
                 ansCount++;
+
             }
         
         }
@@ -130,6 +134,8 @@ submit.addEventListener("click", function(e){
         }
         
         if(ansCount == CLUE_SIZE){
+            stopTimer();
+            console.log("here 138")
             checkAnswer(answerArray);
             if (gameWon == false){
                 var popup = document.getElementById("popup-lost");
@@ -147,40 +153,6 @@ submit.addEventListener("click", function(e){
 });
 
 
-
-
-// playAgainLost.addEventListener("click", function (e){
-//     popup = document.getElementById("popup-lost");
-//     popup.classList.remove("open-popupLost");
-//     location.reload();
-// });
-
-// playAgainWon.addEventListener("click", function (e){
-    
-//     popup = document.getElementById("popup-won");
-//     popup.classList.remove("open-popupWon");
-//     location.reload();
-
-// });
-
-// closePage.addEventListener("click", function (e){
-//     var startPage= document.getElementById("startPage");
-//     startPage.classList.remove(".start-page");
-//     startPage.classList.add(".close-start-page");
-// });
-
-// closeLost.addEventListener("click", function (e){
-//     popup = document.getElementById("popup-lost");
-//     popup.classList.remove("open-popupLost");
-//    disableElements();
-// });
-
-// closeWon.addEventListener("click", function (e){
-//     popup = document.getElementById("popup-won");
-//     popup.classList.remove("open-popupWon");
-//     disableElements();
-
-// });
 
 function disableElements(){
     var input = document.getElementById("input-box0");
@@ -246,7 +218,7 @@ function getClueArrays(){
 
   function checkAnswer(answer){
 
-
+    clearInterval(timer);
 
     gameWon = checkWellPlaced(answer);
 
@@ -263,6 +235,7 @@ function getClueArrays(){
 
     }
     gameOver = true;
+    stopTimer();
     
 }  
 
@@ -371,6 +344,7 @@ function checkNoCorrect(answer){
 function closeThisLost(){
     var lostMessage = document.getElementById("popup-lost");
     lostMessage.style.display = "none";
+    
 }
 
 
@@ -382,10 +356,47 @@ function closeThisWon(){
 function closeThisPage(){
     var startPage = document.getElementById("start-page");
     startPage.style.display = "none";
-    console.log(inputBox.id);
     inputBox = document.getElementById("input-box0");
     inputBox.focus();
+    startTimer();
+
     
 }
+
+function setTimer(){
+    seconds++;
+    var sec = seconds;
+    var min = minutes;
+
+    if(!stop){
+        if(seconds == 60){
+            minutes++;
+            seconds = 0;
+        }
+        if (seconds < 10) {
+            sec = "0" + seconds; 
+        } 
+        if (minutes < 10) {
+            min = "0" + minutes; 
+        } 
+        displaytime.innerHTML = min + ":" + sec;
+    }
+    
+    
+}
+var stop = false;
+function startTimer(){
+    if(timer != null){
+        clearInterval(timer);
+    }
+    setInterval(setTimer, 1000);
+
+}
+
+function stopTimer(){
+    stop = true;
+    document.getElementById("wonTime").innerHTML = displaytime.innerHTML;
+}
+
 
 

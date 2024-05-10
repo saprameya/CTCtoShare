@@ -67,6 +67,13 @@ header{
     margin-bottom: 0rem;
 }
 
+.timer{
+    border: solid 0.1rem #43234b;
+    margin: 2rem;
+    box-shadow: 0.2rem 0.2rem 2rem #43234b inset;
+    border-radius: 5px;
+}
+
 #puzzle-container{
     grid-area: puzzle-container;
     margin-top: 3rem;
