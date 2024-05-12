@@ -395,7 +395,7 @@ function startTimer(){
 
 function stopTimer(){
     stop = true;
-    document.getElementById("wonTime").innerHTML = displaytime.innerHTML;
+    document.getElementById("wonTime").innerHTML = minutes + " minutes and  " + seconds + " seconds ";
 }
 
 
