@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crack the Code</title>
+        <link href = "grid_styles.css" rel = "stylesheet">
+    </head>
+    <body id="body" >
+        <section id="titleRow">
+            <header>Crack the Code</header>
+        </section>
+
+        <section id="puzzle-container" class="clue-container">
+            <p id="CB1">530<br>One number is correct and well placed</p>
+            <p id="CB2">958<br>One number is correct but wrongly placed</p>
+            <p id="CB3">496<br>Nothing is correct</p>
+            <p id="CB4">917<br>Two numbers are correct but wrongly placed</p>
+    </section>
+        <section id="clueVariables">
+            <ol>
+                <li id="wpIndex">0</li>
+                <li id="cnpIndex1">2</li>
+                <li id="cnpIndex2">1</li>
+                <li id="wpNum">5</li>
+                <li id="cnpNum1">7</li>
+                <li id="cnpNum2" >1</li>
+            </ol>
+        </section>
+        <section id="user-container">
+                <input type="text" onclick="tryFunction('0')" id="input-box0" readonly placeholder="X" >
+                <input type="text" onclick="setBoxFocus('1')" id="input-box1" readonly placeholder="X" >
+                <input type="text" onclick="setBoxFocus('2')" id="input-box2" readonly placeholder="X" >
+        </section>
+        <section id="button-row">
+            <button id = "b0">0</button>
+            <button id = "b1">1</button>
+            <button id = "b2">2</button>
+            <button id = "b3">3</button>
+            <button id = "b4">4</button>
+            <button id = "b5">5</button>
+            <button id = "b6">6</button>
+            <button id = "b7">7</button>
+            <button id = "b8">8</button>
+            <button id = "b9">9</button>
+        </section>
+        <section id="submit-row">
+            <button id = "submit" onclick="submit()">submit</button>
+        </section>          
+        <div id="answer" contenteditable="true" 
+            onchange="checkAnswer(this.innerHTML)">
+        </div>
+        <section class = "popupLost" id="popup-lost">
+            <p>You didn't succeed...<br>Better luck next time!</p>
+            <div id = "closeLost" onclick="closeThisLost()">&times</div>
+
+        </section>
+        <section class = "popupWon" id="popup-won">
+            <p>You cracked the code in 
+            <span id="wonTime">X</span>!!!</p>
+            <div id = "closeWon" onclick="closeThisWon()">&times</div>
+        </section>
+        <section id="aside">
+            <h1>Instructions</h1>
+            <p>You will be given four clues to guess a three digit code. </p>
+            <p>Digits will not be repeated in the code. </p>
+            <p>There may be multiple correct solutions. </p>
+            <p>You can click on a box to change the digit you want to enter. </p>
+            <section class="timer" id="timer">00:00</section>
+        </section>
+        <section class="start-page" id="start-page">
+            
+            <h1>Instructions</h1>
+            <p>You will be given four clues to guess a three digit code. </p>
+            <p>Digits will not be repeated in the code. </p>
+            <p>There may be multiple correct solutions. </p>
+            <p>You can click on a box to change the digit you want to enter. </p>
+            <button id = "closePage" class="button" onclick="closeThisPage()">Start game</button></div>
+        </section>
+        <script src = "combined-script.js"></script> 
+
+
+
+    </body>
+</html>
